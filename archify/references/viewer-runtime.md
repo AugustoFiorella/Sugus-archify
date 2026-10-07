@@ -5,7 +5,7 @@ Read this only when the user asks for a reader-facing capability. Ordinary gener
 ## Exploration
 
 - Diagram Guide lists current actions and shortcuts.
-- Reading Depth starts at READ at the default 100% scale, reveals FULL detail at 175%, and falls back to MAP only below 100%. Focus, story, route, and semantic interactions reveal their exact facts at any scale.
+- Reading Depth starts at READ at the default 100% scale, reveals FULL detail at 175%, and falls back to MAP only below 100%. Focus, route, and semantic interactions reveal their exact facts at any scale.
 - Semantic Lens summarizes selected node/relationship kinds without changing authored geometry.
 - Intent Trace previews a fine-pointer or keyboard target before committed focus.
 - Node Finder searches labels and stable IDs.
@@ -14,11 +14,7 @@ Read this only when the user asks for a reader-facing capability. Ordinary gener
 - Direct Relationship Pin makes a unique compiled relationship operable while preserving the authored line and stable relationship identity. It must fail closed on conflicting source/target/label/ID metadata.
 - Route Probe resolves exactly two endpoints over authored directed relationships. It never infers a route from geometry.
 
-## Guided views and story
-
-`meta.views` may define at most five curated chapters using stable node IDs. The Named Chapter Rail, Chapter Delta Preview, Story Beat Navigator, Story Follow Camera, Story Director Strip, Story Horizon, and Shareable Story Moment links all derive from that one authored array; none owns parallel topology or layout.
-
-Story transitions classify only the exact relationship between adjacent authored stops: forward, reverse, multiple, or grouped/no direct link. Never infer a transitive edge, verb, causality, or runtime behavior from proximity, kinds, or story order. Playback is reader-started, bounded, stale-safe, and motion-governed.
+Authored subarchitectures expand below the main graph in the same page. Opening internals scrolls to that section and focuses its return control. Back, Close, and Escape restore the previous page position and parent focus. The parent keeps its reading layout while the child is open. Child SVGs retain their natural aspect ratio. On desktop, the child fits the available width and viewport height while preserving primary labels of at least 10 CSS pixels. Graphs that cannot fit at that reading size use page scrolling. A narrow stage scrolls horizontally, and component details do not shrink the graph. Window resizing and theme or preset changes recalculate the child size without changing its authored geometry or export dimensions.
 
 ## Motion and presentation
 
@@ -26,11 +22,7 @@ Story transitions classify only the exact relationship between adjacent authored
 
 ## Canonical exports
 
-The export menu can copy/download full-diagram PNG, download JPEG/WebP, download a dual-theme SVG, and record a trace-enabled WebM. Viewer state—Guide, Lens, finder, focus, route, story, camera, radar, presentation, motion ownership, and temporary overlays—must be removed from canonical export.
-
-### Share Card
-
-The optional 1200×630 Share Card PNG is for README, release, social, or launch previews. It uses the current theme and visual preset, contains the complete canonical diagram without cropping, and never claims validation. Copy Share Card reuses the same canonical PNG when clipboard image writes are supported.
+The export menu can copy/download full-diagram PNG, download JPEG/WebP, download a dual-theme SVG, and record a trace-enabled WebM. Viewer state—Guide, Lens, finder, focus, route, camera, radar, presentation, motion ownership, and temporary overlays—must be removed from canonical export.
 
 ### Route Share Card
 
@@ -43,3 +35,5 @@ After a non-empty authored reachability query, the reader may use **Export → R
 ## Truth boundary
 
 Viewer exports are communication assets. They do not replace the checked HTML, the deterministic delivery receipt, or a real visual review. Do not add a hosted service, storage surface, dependency, schema branch, or mobile product surface for these viewer-only capabilities.
+
+When one authored subarchitecture is open, the menu reveals an explicit **Main architecture / Current subarchitecture** target selector. The main architecture remains the default. The subarchitecture target reuses the same canonical cleanup and PNG/JPEG/WebP/SVG/clipboard/Share Card paths, but its source is exactly the one mounted child SVG: the parent graph, drawer, Semantic Passport, and temporary local focus or Intent Trace state never enter the result. Route/Reach Share Cards and trace WebM remain parent-only because their snapshots belong to the canonical parent runtime. Closing or invalidating the child resets the target to main and fails closed rather than exporting mixed content.
